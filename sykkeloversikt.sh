@@ -17,3 +17,4 @@ for station in "${station_array[@]}"; do
 
   result=${result}"{\"name\": $station_name, \"bikes\": $bikes, \"docks\": $docks},"
 done
+jq . <<< [${result%?}]
