@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 RESULT=TEST_oversikt.json
-EXPECTED_STATIONS=245
+EXPECTED_STATIONS=244
 FAILED=false
 
 # Colors
@@ -37,10 +37,10 @@ check_station Stortingstunellen
 
 LENGTH=$(jq length ${RESULT})
 
-if [ ${LENGTH} == ${EXPECTED_STATIONS} ]; then
-  print_green "Found ${EXPECTED_STATIONS} stations, (test ok) \n"
+if [ ${LENGTH} -ge ${EXPECTED_STATIONS} ]; then
+  print_green "Found ${LENGTH} stations, expected at least ${EXPECTED_STATIONS}, (test ok) \n"
 else
-  print_red "Found ${LENGTH} stations, expected ${EXPECTED_STATIONS} staions, (test failed) \n"
+  print_red "Found ${LENGTH} stations, expected at least ${EXPECTED_STATIONS} staions, (test failed) \n"
   FAILED=true
 fi
 
