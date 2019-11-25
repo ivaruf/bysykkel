@@ -11,6 +11,9 @@ Kjøres med:
 
 `./sykkeloversikt.sh`
 
+Kjør tester med:
+`./tests.sh`
+
 Output:
 Json med "name" (stasjon-navn), "bikes" (tilgjenglige sykkler), og "docks" (tilgjenglige låser) for alle stasjoner
 
