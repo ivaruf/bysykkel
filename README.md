@@ -12,27 +12,26 @@ Kjøres med:
 `./sykkeloversikt.sh`
 
 Kjør tester med:
+
 `./tests.sh`
 
 
 Output av JSON:
 Json med "name" (stasjon-navn), "bikes" (tilgjenglige sykkler), og "docks" (tilgjenglige låser) for alle stasjoner
 
-For lagring av resultat til fil kjør:
-
-`./sykkeloversikt.sh > oversikt.json`
 
 
 ## Eksponer endepunkt
 
 Kjør updater script, dette sørger for at data er oppdatert
+
 `./updater.sh`
 
-Nå trenger vi bare å serve innholdet generert av updater
+Gå inn i api mappen
 
 `cd api`
 
-Nå kan vi serve innholdet på valgfritt vis, under følger tre eksempler:
+Serve innholdet på valgfritt vis, under følger tre eksempler:
 
 Python 2:
 
@@ -45,10 +44,12 @@ Python 3:
 Node server:
 
 `npm install -g serve`
+
 `serve -l 8000`
 
 Endepunkt vil nå bli å finne på
-http://localhost:8000/bysykkel/v1/oversikt.json
+* http://localhost:8000/bysykkel/v1/oversikt.json
+* http://localhost:8000/bysykkel/v2/oversikt.json
 
 NB:
 Ikke optimalisert for hastighet eller effektivitet, kun et artig lite eksempel som var mulig å kode i bash =)
