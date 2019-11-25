@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-RESULT=oversikt.json
+RESULT=TEST_oversikt.json
 EXPECTED_STATIONS=245
 FAILED=false
 
@@ -29,13 +29,13 @@ function check_station() {
 
 print_green "Fetching data ... \n"
 
-./sykkeloversikt.sh > oversikt.json
+./sykkeloversikt.sh > ${RESULT}
 
 check_station Sommerfrydhagen
 check_station "Frogner Stadion"
 check_station Stortingstunellen
 
-LENGTH=$(jq length oversikt.json)
+LENGTH=$(jq length ${RESULT})
 
 if [ ${LENGTH} == ${EXPECTED_STATIONS} ]; then
   print_green "Found ${EXPECTED_STATIONS} stations, (test ok) \n"
@@ -50,3 +50,5 @@ else
  print_green "Tests ran with no problems!"
 fi
 
+# Clean up
+rm ${RESULT}
